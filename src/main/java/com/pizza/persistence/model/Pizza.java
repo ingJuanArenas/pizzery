@@ -1,11 +1,16 @@
 package com.pizza.persistence.model;
 
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +32,9 @@ public class Pizza {
     private String description;
     @Column(nullable = false, columnDefinition = "DECIMAL(6,2)")
     private Double price;
+
+   @OneToMany(mappedBy = "pizza")
+    private List<DetailsOrder> detailsOrders;
+
+
 }
