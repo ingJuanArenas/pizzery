@@ -1,5 +1,6 @@
 package com.pizza.persistence.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Order {
     @Column(nullable = false, columnDefinition = "DECIMAL(8,2)")
     private Double total;
     @Column(name="order_date", nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime orderDate;
+    private LocalDate orderDate;
 
     @ManyToOne
     @JoinColumn(name = "client_id", insertable = false, updatable = false)
