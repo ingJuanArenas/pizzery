@@ -4,6 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import com.pizza.domain.Exception.AlreadyExistsException;
@@ -35,6 +36,12 @@ public class ExceptionsHandler {
     public ResponseEntity<Error> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
         Error error = new Error("Data Integrity Violation", ex.toString());
         return ResponseEntity.status(409).body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Error> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
+        Error error = new Error("Method Argument Type Mismatch", ex.toString());
+        return ResponseEntity.status(400).body(error);
     }
 
     @ExceptionHandler(Exception.class)
