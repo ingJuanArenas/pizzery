@@ -1,0 +1,33 @@
+    ###
+
+GET http://localhost:8080/api/orders
+
+###
+GET http://localhost:8080/api/orders/17
+### get by orderdate
+GET http://localhost:8080/api/orders/date/2025-12-31
+###
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+    "clientId": 1001,
+    "method": "Pickup",
+    "total": 25.50
+}
+
+
+### put
+PUT http://localhost:8080/api/orders/17
+Content-Type: application/json
+
+{
+    "clientId": 1002,
+    "method": "Delivery",
+    "total": 30.75
+}
+
+
+### delete
+DELETE http://localhost:8080/api/orders/17
+
