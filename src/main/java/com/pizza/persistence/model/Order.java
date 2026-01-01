@@ -1,11 +1,13 @@
 package com.pizza.persistence.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pizza.domain.dtos.DetailsOrderDTO;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,11 +31,18 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, name = "client_id")
     private Long clientId;
+
+
     private String method;
+
+
     @Column(nullable = false, columnDefinition = "DECIMAL(8,2)")
     private Double total;
+
+
     @Column(name="order_date", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDate orderDate;
 
@@ -42,6 +51,6 @@ public class Order {
     @JsonIgnore
     private Client client;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
-    private List<DetailsOrder> detailsOrders;
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER )
+    private List<DetailsOrder> detailsOrders = new ArrayList<>();
 }
