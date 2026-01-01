@@ -33,8 +33,6 @@ public class Pizza {
     @Column(nullable = false, columnDefinition = "DECIMAL(6,2)")
     private Double price;
 
-   @OneToMany(mappedBy = "pizza")
-    private List<DetailsOrder> detailsOrders;
 
 
 }
