@@ -13,8 +13,10 @@ import com.pizza.persistence.model.Order;
 public interface OrderMapper {
     
     @Mapping(target = "id", ignore = true)
+    @Mapping(source = "details", target = "detailsOrders")
     Order toEntity(OrderDTO orderDTO);
 
+     @Mapping(source = "detailsOrders", target = "details")
     OrderDTO toDto(Order order);
 
     List<OrderDTO> toDtos(List<Order> orders);
