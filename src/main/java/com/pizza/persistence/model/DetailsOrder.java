@@ -27,7 +27,7 @@ public class DetailsOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="order_id", nullable = false)
+    @Column(name= "order_id" , nullable = false)
     private Long orderId;
     @Column(name= "pizza_id" , nullable = false)
     private Long pizzaId;
@@ -36,13 +36,11 @@ public class DetailsOrder {
     @Column(name="price_per_unit" ,nullable = false, columnDefinition = "DECIMAL(6,2)")
     private Double pricexunit;
 
-    @ManyToOne
+  
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", insertable = false, updatable = false)
     private Order order;
 
-    @ManyToOne
-    @JoinColumn(name = "pizza_id", insertable = false, updatable = false)
-    private Pizza pizza;
 
 
 }
