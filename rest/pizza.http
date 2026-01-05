@@ -3,7 +3,7 @@ GET http://localhost:8080/api/pizzas
 Accept: application/json
 
 ### get by id 
-GET http://localhost:8080/api/pizzas/3
+GET http://localhost:8080/api/pizzas/4
 Accept: application/json
 
 ### create pizza
@@ -11,13 +11,13 @@ POST http://localhost:8080/api/pizzas
 Content-Type: application/json
 
 {
-  "name": "Mexican",
+  "name": "Colombian top",
   "description": "Classic pizza with tomato sauce, mozzarella, and basil",
   "price": 8.99
 }
 
 ### update pizza
-PUT http://localhost:8080/api/pizzas/update/3
+PUT http://localhost:8080/api/pizzas/update/9
 Content-Type: application/json
 
 {
@@ -27,4 +27,4 @@ Content-Type: application/json
 }
 
 ### delete pizza
-DELETE http://localhost:8080/api/pizzas/3
+DELETE http://localhost:8080/api/pizzas/9
