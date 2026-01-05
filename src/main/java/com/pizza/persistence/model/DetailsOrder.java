@@ -1,18 +1,13 @@
 package com.pizza.persistence.model;
 
-import java.util.List;
-
-import org.hibernate.internal.build.AllowNonPortable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +32,7 @@ public class DetailsOrder {
     private Double pricexunit;
 
   
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "order_id", insertable = false, updatable = false)
     private Order order;
 

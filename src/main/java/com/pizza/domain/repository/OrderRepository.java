@@ -11,7 +11,6 @@ public interface OrderRepository {
     List<OrderDTO> getByDate(LocalDate date);
     OrderDTO getById(Long id);
     OrderDTO create(OrderDTO orderDTO);
-    OrderDTO update(Long id, OrderDTO orderDTO);
     void delete(Long id);
     
 } 

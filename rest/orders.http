@@ -3,48 +3,24 @@
 GET http://localhost:8080/api/orders
 
 ###
-GET http://localhost:8080/api/orders/1
+GET http://localhost:8080/api/orders/8
 ### get by orderdate
-GET http://localhost:8080/api/orders/date/2026-01-01
+GET http://localhost:8080/api/orders/date/2026-01-06
 ###
 POST http://localhost:8080/api/orders
 Content-Type: application/json
 
 {
-  "clientId": 1003,
+  "clientId": 1004,
   "method": "CARRYOUT",
-  "total": 45.50,
   "details": [
-    { "pizzaId": 2, "quantity": 2, "pricexunit": 50.00 },
-    { "pizzaId": 4, "quantity": 1, "pricexunit": 5.50 }
+    { "pizzaId": 5, "quantity": 1},
+    { "pizzaId": 4, "quantity": 2 }
   ]
 }
 
 
 
-### put
-PUT http://localhost:8080/api/orders/19
-Content-Type: application/json
-
-{
-    "clientId": 1003,
-    "method": "Delivery",
-    "total": 30.75,
-    "detailsOrders": [
-        {
-            "pizzaId": 2,
-            "quantity": 1,
-            "pricePerUnit": 15.00
-        },
-        {
-            "pizzaId": 4,
-            "quantity": 1,
-            "pricePerUnit": 15.75
-        }
-    ]
-}
-
-
 ### delete
-DELETE http://localhost:8080/api/orders/7
+DELETE http://localhost:8080/api/orders/17
 

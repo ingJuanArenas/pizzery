@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 import com.pizza.domain.dtos.OrderDTO;
 import com.pizza.persistence.model.Order;
@@ -13,6 +12,8 @@ import com.pizza.persistence.model.Order;
 public interface OrderMapper {
     
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "total", ignore = true)
+    @Mapping(target = "orderDate", ignore = true)
     @Mapping(source = "details", target = "detailsOrders")
     Order toEntity(OrderDTO orderDTO);
 
@@ -21,8 +22,6 @@ public interface OrderMapper {
 
     List<OrderDTO> toDtos(List<Order> orders);
 
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "orderDate", ignore = true)
-    void updateEntityFromDto(OrderDTO orderDTO, @MappingTarget Order order);
+
 
 }

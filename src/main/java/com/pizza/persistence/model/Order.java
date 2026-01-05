@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.pizza.domain.dtos.DetailsOrderDTO;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -51,6 +49,6 @@ public class Order {
     @JsonIgnore
     private Client client;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<DetailsOrder> detailsOrders = new ArrayList<>();
 }
