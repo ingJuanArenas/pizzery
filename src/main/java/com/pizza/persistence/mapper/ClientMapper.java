@@ -3,7 +3,6 @@ package com.pizza.persistence.mapper;
 import java.util.List;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import com.pizza.domain.dtos.ClientDTO;
